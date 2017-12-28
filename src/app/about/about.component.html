@@ -1,0 +1,9 @@
+<p>
+ <a (click)="goHome()"><strong>Go Home via Function</strong></a>.
+</p>
+<p>
+  <a [routerLink]="['']"><strong>Go Home via routerLink</strong></a>.
+ </p>
+<ul *ngFor="let goal of goals">
+  {{goal}}
+</ul>
