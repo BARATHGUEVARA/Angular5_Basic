@@ -36,8 +36,8 @@ import {MyServiceService} from '../myService.service'
 export class HomeComponent implements OnInit {
   itemCount : number;
   btnText : string = "Add an item";
-  goalText : string = "My life goal";
-  goals = ['I wanna go sky diving', 'I want to climb a mountain', 'Go ice skating'];
+  goalText : string = "I wanna become a pilot";
+  goals = [];
   constructor(private _data : MyServiceService) {}
 
   ngOnInit() {
@@ -46,6 +46,10 @@ export class HomeComponent implements OnInit {
     this._data.changeGoal(this.goals);
   }
   addItem() {
+    if(!this.goalText){
+      alert("Please enter your goal to add to the bucket list");
+      return false;
+    }
     this.goals.push(this.goalText);
     this.goalText = "";
     this.itemCount = this.goals.length;
@@ -53,6 +57,7 @@ export class HomeComponent implements OnInit {
   }
   removeItem(index) {
     this.goals.splice(index, 1)
+    this.itemCount = this.goals.length;
       this._data.changeGoal(this.goals);
   }
 
