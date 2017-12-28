@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit {
     this._data.changeGoal(this.goals);
   }
   removeItem(index) {
-    this.goals.splice(index, 1)
+    this.goals.splice(index, 1);
     this.itemCount = this.goals.length;
       this._data.changeGoal(this.goals);
   }
